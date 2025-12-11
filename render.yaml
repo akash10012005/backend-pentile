@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: my-backend
+    env: node
+    repo: https://github.com/akash10012005/backend-pentile
+
+    branch: main
+    plan: free
+    buildCommand: "npm install"
+    startCommand: "npm start"
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+
+      - key: MONGO_URI
+        sync: false # set this inside Render dashboard
+
+      - key: JWT_SECRET
+        sync: false # set this inside Render dashboard
+
+      - key: JWT_EXPIRES_IN
+        value: "7d"
+
+      - key: CORS_ORIGIN
+        value: "*"
